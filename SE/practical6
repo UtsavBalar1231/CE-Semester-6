@@ -1,0 +1,76 @@
+#!/usr/bin/python
+
+from selenium import webdriver
+from time import sleep
+from selenium.webdriver.support.ui import Select
+
+driver = webdriver.Firefox()
+driver.get('https://mytestingthoughts.com/Sample/home.html')
+print ("Opened test website")
+sleep(1)
+
+firstname_box = driver.find_element_by_name('first_name')
+firstname_box.send_keys("Utsav")
+print ("First name entered")
+sleep(1)
+
+lastname_box = driver.find_element_by_name('last_name')
+lastname_box.send_keys("Utsav")
+print ("Last name entered")
+sleep(1)
+
+radio_box = driver.find_element_by_xpath('/html/body/div/form/fieldset/div[3]/div/div[1]/label')
+radio_box.click()
+print ("Male Seleteced")
+sleep(1)
+
+select_hobby_box = driver.find_element_by_xpath('/html/body/div/form/fieldset/div[4]/div/select/option[1]')
+select_hobby_box.click()
+print ("Seleteced reading")
+sleep(1)
+
+department = Select(driver.find_element_by_name('department'))
+department.select_by_visible_text('Department of Engineering')
+print("Department selected")
+sleep(1)
+
+username = driver.find_element_by_name('user_name')
+username.send_keys('utsavbalar')
+print("Entered username")
+sleep(1)
+
+userpass = driver.find_element_by_name('user_password')
+userpass.send_keys('abcdefgh123')
+print("Entered password")
+sleep(1)
+
+confirm_pass = driver.find_element_by_name('confirm_password')
+confirm_pass.send_keys('adcdefgh123')
+print("Entered confirm password")
+sleep(1)
+
+email = driver.find_element_by_name('email')
+email.send_keys('utsavbalar1231@gmail.com')
+print("Entered email")
+sleep(1)
+
+contact = driver.find_element_by_name('contact_no')
+contact.send_keys('(612)7776677')
+print("Entered contact no.")
+sleep(1)
+
+username = driver.find_element_by_id('exampleFormControlTextarea1')
+username.send_keys('utsav is the greatest bhupendra is bhopu')
+print("Entered additional important info")
+sleep(1)
+
+btn = driver.find_element_by_xpath('/html/body/div/form/fieldset/div[13]/div/button')
+btn.click()
+print ("Submitted")
+sleep(1)
+
+print ("Done")
+
+input('Press anything to quit')
+driver.quit()
+print("Finished")
